@@ -6,6 +6,11 @@
 \usage{
 run_app(data, model, .xai_folder = NULL)
 }
+\arguments{
+\item{data}{dataset to be given}
+
+\item{model}{model function to be given}
+}
 \description{
 This function calls the shiny app contained within the \code{inst} folder
 }

@@ -16,12 +16,7 @@ run_app <- function(data, model, .xai_folder = NULL) {
     dir.create(here::here("shiny"))
   }
   file.copy(app_location, here::here("shiny"), recursive = TRUE)
-  shiny_deps <- renv::lockfile_read(here::here("shiny", "app_template", "renv.lock")) 
-  shiny_deps <- names(shiny_deps$Packages) # TODO: Need to fix versioning later
-  if(rlang::is_installed("pak")) {
-    pak::pkg_install(shiny_deps)
-  } else {
-    utils::install.packages(shiny_deps)
-  }
-  shiny::shinyApp(here::here("shiny", "app_template", "app.R"))
+  withr::with_dir(here::here("shiny", "app_template"), {
+    system2("R", "-e 'print(getwd());rhino::app()'")
+  })
 }
