@@ -27,3 +27,7 @@ You can install the development version of rosella like so:
 ``` r
 pak::pkg_install("janithwanni/rosella")
 ```
+
+At the moment Rosella can show a proof of concept shiny application which will be extensible to your own data and model in the future releases.
+
+![](man/figures/temp_demo.gif)
